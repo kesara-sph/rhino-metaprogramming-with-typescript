@@ -1,0 +1,20 @@
+{
+  "name": "metaprogramming-with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "run": "ts-node index.ts",
+    "challenge": "ts-node challenge/index.ts"
+  },
+  "keywords": [],
+  "author": "Ashen Gunaratne <mail@ashenm.dev>",
+  "devDependencies": {
+    "@types/lodash": "4.17.7",
+    "@types/node": "22.5.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "axios": "1.7.7",
+    "lodash": "4.17.21"
+  }
+}
