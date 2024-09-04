@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Post, Query } from "./types";
 import assert from "node:assert";
 import test from "node:test";
-import { trace } from "./decorators";
+import { paginate, trace } from "./decorators";
 
 @trace()
 class Challenge {
@@ -11,12 +11,14 @@ class Challenge {
     baseURL: "https://jsonplaceholder.typicode.com",
   });
 
+  @paginate()
   async getPosts(query?: Query): Promise<Post[]> {
     const params: Query = { _limit: 10, _page: 1, ...query };
     const response: AxiosResponse<Post[]> = await this.client.get("/posts", { params });
     return response.data;
   }
 
+  @paginate()
   async getComments(query?: Query): Promise<Comment[]> {
     const params: Query = { _limit: 10, _page: 1, ...query };
     const response: AxiosResponse<Comment[]> = await this.client.get("/comments", { params });
